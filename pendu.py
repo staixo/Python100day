@@ -81,7 +81,7 @@ while end == 0 :
     else:
         print("Wrong")
         live -=1
-        stages[live]
+        print(stages[live])
     
     print(list_of_charsempty)
     if(list_of_charsempty == list_of_chars):
