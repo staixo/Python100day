@@ -1,4 +1,5 @@
 import random
+import os
 
 wordlist = ["pendu","python","java","javascript","php","c++","c#","ruby","c","html","css","sql","swift","objective-c","objective-j","perl","scala","go","rust","dart","kotlin","clojure","elixir","erlang"]
 randomword = random.sample(wordlist, 1)
@@ -73,7 +74,7 @@ while end == 0 :
     letter="test"
     while(len(letter) != 1):
         letter = str(input("Enter a letter: "))
-
+        os.system('cls')
 
     if(letter in str(randomword[0])):
         print("Correct")
