@@ -18,6 +18,7 @@ while typecode != 'encode' and typecode != 'decode':
 message = str(input("Type your message: "))
 
 shift = int(input("Type the shift number: "))
-
-
-caesar(typecode, message, shift)
+end = 0
+while end == 0:
+    caesar(typecode, message, shift)
+    end = int(input("Type 0 to continue, or any other number to quit: "))
