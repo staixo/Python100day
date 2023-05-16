@@ -8,9 +8,10 @@ list_of_charsempty = list_of_chars.copy()
 for i in range(len(list_of_chars)):
     list_of_charsempty[i] = "_"
 number = 0
+end = 0
 print(list_of_chars)
 print(list_of_charsempty)
-while guess not in wordlist:
+while end == 0 :
     
     letter = str(input("Enter a letter: "))
     
@@ -23,7 +24,9 @@ while guess not in wordlist:
     print(list_of_charsempty)
     if(list_of_charsempty == list_of_chars):
         print("You win")
+        end = 1
     elif(number > 6):
         print("Game Over")
+        end = 1
     else:
         number +=1
