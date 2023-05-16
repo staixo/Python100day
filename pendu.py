@@ -1,6 +1,6 @@
 import random
 
-wordlist = ["cat", "dog", "rabbit"]
+wordlist = ["pendu","python","java","javascript","php","c++","c#","ruby","c","html","css","sql","swift","objective-c","objective-j","perl","scala","go","rust","dart","kotlin","clojure","elixir","erlang"]
 randomword = random.sample(wordlist, 1)
 
 stages = ['''
@@ -67,7 +67,7 @@ for i in range(len(list_of_chars)):
 number = 0
 end = 0
 live = 6
-print(list_of_chars)
+
 print(list_of_charsempty)
 while end == 0 :
     
