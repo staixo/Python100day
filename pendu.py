@@ -70,9 +70,11 @@ live = 6
 
 print(list_of_charsempty)
 while end == 0 :
-    
-    letter = str(input("Enter a letter: "))
-    
+    letter="test"
+    while(len(letter) != 1):
+        letter = str(input("Enter a letter: "))
+
+
     if(letter in str(randomword[0])):
         print("Correct")
         for i in range(0,len(randomword[0])):
@@ -88,5 +90,5 @@ while end == 0 :
         print("You win")
         end = 1
     elif(live == 0):
-        print("You lose")
+        print("You lose it was " + str(randomword[0]))
         end = 1 
