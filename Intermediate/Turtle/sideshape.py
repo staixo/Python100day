@@ -10,7 +10,7 @@ def shapeandback(turtle, length, sides):
 
 
 tim = turtle.Turtle()
-
+tim.hideturtle()
 tim.shape("turtle")
 my_screen = turtle.Screen()
 print(my_screen.canvheight)

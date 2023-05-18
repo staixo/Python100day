@@ -11,11 +11,14 @@ def randomwalk(turtle, length):
 
 tim = turtle.Turtle()
 
+tim.hideturtle()
+tim.speed(200)
+tim.width(5)
 tim.shape("turtle")
 my_screen = turtle.Screen()
 print(my_screen.canvheight)
 
-for _ in range (20):
-    randomwalk(tim, 10)
+for _ in range (10000):
+    randomwalk(tim, 20)
 
 
