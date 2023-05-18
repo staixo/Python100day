@@ -52,3 +52,5 @@ while True:
     tim.sety(-size*50)
     for side in range (5):
         antipyrylazo(tim, size)
+
+my_screen.exitonclick()
