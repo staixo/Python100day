@@ -47,7 +47,8 @@ my_screen = turtle.Screen()
 print(my_screen.canvheight)
 tim.penup()
 size = 6
-tim.setx(-size*50)
-tim.sety(-size*50)
-for side in range (20):
-    antipyrylazo(tim, size)
+while True:
+    tim.setx(-size*50)
+    tim.sety(-size*50)
+    for side in range (5):
+        antipyrylazo(tim, size)
