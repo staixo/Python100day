@@ -26,6 +26,8 @@ x,y=turtle.position()
 for number in range (1,1000):
     move(tim, number,100)
 
+my_screen.exitonclick()
+
 
 
 
