@@ -1,4 +1,4 @@
-import random
+
 import data
 import quizzclass
 
