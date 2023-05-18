@@ -4,13 +4,13 @@ import math
 
 
 
-def move(turtle,numberofcirle):
+def move(turtle,numberofcirle,size):
     turtle.penup()
     print(turtle.position())
-    turtle.setx(math.cos(numberofcirle/math.pi)*50)
-    turtle.sety(math.sin(numberofcirle/math.pi)*50)
+    turtle.setx(math.cos(numberofcirle/math.pi)*size)
+    turtle.sety(math.sin(numberofcirle/math.pi)*size)
     turtle.pendown()
-    turtle.circle(50)
+    turtle.circle(size)
 
 
 
@@ -24,7 +24,7 @@ my_screen = turtle.Screen()
 print(my_screen.canvheight)
 x,y=turtle.position()
 for number in range (1,1000):
-    move(tim, number)
+    move(tim, number,100)
 
 
 
