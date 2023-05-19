@@ -3,6 +3,7 @@ import glob
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import datetime
 
 folder_path = "./output/"  # Replace with the path to your folder containing CSS files
 
