@@ -12,6 +12,8 @@ def replace_name(letter, names):
     for name in names:
         new_letter = letter.replace("[name]", name)
         print(new_letter)
+        with open(f"../output/letter_for_{name}.txt", "w+t", encoding="utf-8", errors="ignore") as f:
+            f.write(new_letter)
 
 letter = import_letter()
 names = importname()
