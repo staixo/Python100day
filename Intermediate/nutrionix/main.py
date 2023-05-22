@@ -11,7 +11,7 @@ scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
 
 credentials = ServiceAccountCredentials.from_json_keyfile_name(
-    'C:/Users/henri.peters/Downloads/test-python-214212-e4c954e48287.json', scope)  # Mettez ici le chemin vers votre fichier JSON
+    'Python100day\Intermediate\nutrionix\credential.json.db', scope)  # Mettez ici le chemin vers votre fichier JSON
 
 gc = gspread.authorize(credentials)
 
