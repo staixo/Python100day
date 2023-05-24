@@ -44,11 +44,19 @@ class DataManager:
         print(self.cleandata)
         self.gc = gspread.authorize(self.credentials)
         self.spreadsheet = self.gc.open_by_url(GOOGLE_SHEET_URL)
-        self.sheet = self.spreadsheet.sheet1
+        self.sheet = self.spreadsheet.worksheet("prices")
         gd.set_with_dataframe(self.sheet, self.cleandata)
     def get_users(self):
         self.data = gd.get_as_dataframe(self.spreadsheet.worksheet("users"))
         self.cleandata = self.data[["First Name","Last Name", "email"]]
         return self.cleandata
     def add_user(self):
-        pass
+        self.data = self.get_users()
+        self.data = self.data.drop_duplicates().dropna()
+        self.data = self.data.reset_index(drop=True)
+        self.data = pd.concat([self.data, pd.DataFrame({"First Name": [input("First Name: ")], "Last Name": [input("Last Name: ")], "email": [input("Email: ")]})], ignore_index=True)
+        print(self.data)
+        self.gc = gspread.authorize(self.credentials)
+        self.spreadsheet = self.gc.open_by_url(GOOGLE_SHEET_URL)
+        self.sheet = self.spreadsheet.worksheet("users")
+        gd.set_with_dataframe(self.sheet, self.data)

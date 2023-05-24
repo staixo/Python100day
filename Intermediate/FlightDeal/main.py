@@ -7,10 +7,12 @@ import notification_manager
 
 
 dataManager = data_manager.DataManager()
-existing = pd.DataFrame(dataManager.get_destination_data())
+existing = pd.DataFrame(dataManager.get_destination_data()).dropna()
 print(dataManager.get_users())
 flightSearch = flight_search.FlightSearch()
 #dataManager.fill_destination_codes()
+
+
 
 print(existing)
 for index, row in existing.iterrows():
@@ -20,6 +22,5 @@ for index, row in existing.iterrows():
         if int(row["Lowest Price"]) >= int(df["price"].min()):
             print("New Lowest Price")
             print(df["price"].min())
+dataManager.add_user()
 
-
-# Get locations
