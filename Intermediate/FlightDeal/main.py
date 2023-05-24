@@ -17,9 +17,9 @@ for index, row in existing.iterrows():
     print(row["IATA Code"])
     if row["IATA Code"] != "nan":
         df = flightSearch.search_flights(row["IATA Code"])
-        if row["Lowest Price"] <= df["price"].min():
+        if int(row["Lowest Price"]) >= int(df["price"].min()):
             print("New Lowest Price")
-            print(row["Lowest Price"])
+            print(df["price"].min())
 
 
 # Get locations
