@@ -30,7 +30,7 @@ class FlightSearch(FlightData):
         print(self.params)
         print(self.header)
         print(self.GET_FLIGHTS_ENDPOINT)
-        response = requests.get(url=self.GET_FLIGHTS_ENDPOINT, params=self.params,headers=self.header)
+        response = requests.get(url=self.GET_FLIGHTS_ENDPOINT, params=self.params,headers=self.header,verify=False)
         try:
             print(response.raise_for_status())
             data = response.json()

@@ -16,7 +16,7 @@ class FlightData:
             "term": city,
             "location_types": "city"
             }
-        response = requests.get(url=self.GET_LOCATIONS_ENDPOINT, params=paramskiwi, headers=self.header)
+        response = requests.get(url=self.GET_LOCATIONS_ENDPOINT, params=paramskiwi, headers=self.header,verify=False)
         data = response.json()
         df = pd.DataFrame(data["locations"])
         return df["code"][0]
@@ -26,7 +26,7 @@ class FlightData:
             "term": city,
             "location_types": "airport"
             }
-        response = requests.get(url=self.GET_LOCATIONS_ENDPOINT, params=paramskiwi, headers=self.header)
+        response = requests.get(url=self.GET_LOCATIONS_ENDPOINT, params=paramskiwi, headers=self.header,verify=False)
         data = response.json()
         df = pd.DataFrame(data["locations"])
         return df["code"][0]

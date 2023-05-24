@@ -22,7 +22,7 @@ class DataManager:
         self.cleandata = None
         self.gc = gspread.authorize(self.credentials)
         self.spreadsheet = self.gc.open_by_url(GOOGLE_SHEET_URL)
-        self.sheet = self.spreadsheet.sheet1
+        self.sheet = self.spreadsheet.worksheet("prices")
         
     def get_destination_data(self):
 
@@ -47,7 +47,7 @@ class DataManager:
         self.sheet = self.spreadsheet.sheet1
         gd.set_with_dataframe(self.sheet, self.cleandata)
     def get_users(self):
-        self.data = gd.get_as_dataframe(self.spreadsheet.sheet1)
+        self.data = gd.get_as_dataframe(self.spreadsheet.worksheet("users"))
         self.cleandata = self.data[["First Name","Last Name", "email"]]
         return self.cleandata
     def add_user(self):
