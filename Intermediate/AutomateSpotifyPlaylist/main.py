@@ -1,6 +1,9 @@
 import ssl
 from bs4 import BeautifulSoup
 from urllib.request import urlopen, Request
+import Billboard
+import Spotify
+
 url = 'https://www.timeout.com/film/best-movies-of-all-time'
 # Create an unverified context
 ssl._create_default_https_context = ssl._create_unverified_context
