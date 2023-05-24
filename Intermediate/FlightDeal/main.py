@@ -11,9 +11,15 @@ existing = pd.DataFrame(dataManager.get_destination_data())
 print(dataManager.get_users())
 flightSearch = flight_search.FlightSearch()
 #dataManager.fill_destination_codes()
-print(flightSearch.search_flights("LHR"))
 
-
+print(existing)
+for index, row in existing.iterrows():
+    print(row["IATA Code"])
+    if row["IATA Code"] != "nan":
+        df = flightSearch.search_flights(row["IATA Code"])
+        if row["Lowest Price"] <= df["price"].min():
+            print("New Lowest Price")
+            print(row["Lowest Price"])
 
 
 # Get locations

@@ -18,8 +18,6 @@ class FlightSearch(FlightData):
             "nights_in_dst_from": 2,
             "nights_in_dst_to": 14,
             "flight_type": "round",
-            "one_for_city": 1,
-            "max_stopovers": 0,
             "curr": "EUR"
         }
         
@@ -27,12 +25,8 @@ class FlightSearch(FlightData):
         
     def search_flights(self,city_code):
         self.params["fly_to"] = city_code
-        print(self.params)
-        print(self.header)
-        print(self.GET_FLIGHTS_ENDPOINT)
         response = requests.get(url=self.GET_FLIGHTS_ENDPOINT, params=self.params,headers=self.header,verify=False)
         try:
-            print(response.raise_for_status())
             data = response.json()
             df = pd.DataFrame(data["data"])
             return df
