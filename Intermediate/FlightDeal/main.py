@@ -8,6 +8,7 @@ import notification_manager
 
 dataManager = data_manager.DataManager()
 existing = pd.DataFrame(dataManager.get_destination_data())
+print(dataManager.get_users())
 flightSearch = flight_search.FlightSearch()
 #dataManager.fill_destination_codes()
 print(flightSearch.search_flights("LHR"))

@@ -26,7 +26,7 @@ class DataManager:
         
     def get_destination_data(self):
 
-        self.data = gd.get_as_dataframe(self.sheet)
+        self.data = gd.get_as_dataframe(self.spreadsheet.sheet1)
         self.cleandata = self.data[["City", "IATA Code","Lowest Price"]]
         #self.cleandata["Lowest Price"] = self.cleandata["Lowest Price"].astype(int)
         self.cleandata = pd.DataFrame(self.cleandata)
@@ -46,3 +46,9 @@ class DataManager:
         self.spreadsheet = self.gc.open_by_url(GOOGLE_SHEET_URL)
         self.sheet = self.spreadsheet.sheet1
         gd.set_with_dataframe(self.sheet, self.cleandata)
+    def get_users(self):
+        self.data = gd.get_as_dataframe(self.spreadsheet.sheet1)
+        self.cleandata = self.data[["First Name","Last Name", "email"]]
+        return self.cleandata
+    def add_user(self):
+        pass
