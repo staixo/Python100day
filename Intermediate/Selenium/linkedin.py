@@ -13,7 +13,19 @@ driver = webdriver.Chrome(service=service)
 wait = WebDriverWait(driver, 20)
 driver.get(URL)
 
-documentation_link = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "jobs-apply-button artdeco-button artdeco-button--3 artdeco-button--primary ember-view")))
+documentation_link = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cta-modal__primary-btn.btn-md.btn-primary.inline-block.w-full.mt-3")))
+documentation_link.click()
+
+input_element = driver.find_element("id","username")
+
+# Use send_keys to write into the element
+input_element.send_keys("Hello, world!")
+
+input_element = driver.find_element("id","password")
+
+# Use send_keys to write into the element
+input_element.send_keys("Hello, world!")
+documentation_link = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn__primary--large.from__button--floating")))
 documentation_link.click()
 
 time.sleep(5)
