@@ -4,15 +4,8 @@ from urllib.request import urlopen, Request
 import Billboard
 import Spotify
 
-url = 'https://www.timeout.com/film/best-movies-of-all-time'
-# Create an unverified context
-ssl._create_default_https_context = ssl._create_unverified_context
-req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
-with urlopen(req) as response:
-    soup = BeautifulSoup(response, 'html.parser')
-    for anchor in soup.find_all('a'):
-        try:
-            if int(anchor.get_text().split('.')[0]) > 0:
-                print(anchor.get_text().split('.')[1])
-        except ValueError:
-            continue
+billboard = Billboard.Billboard(input("Enter the year: "))
+print(billboard.get_songs())
+spotify = Spotify.Spotify()
+print(spotify.get_access_token())
+print(spotify.searchsong())
