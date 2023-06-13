@@ -1,8 +1,10 @@
 from flask import Flask, render_template
 from post import Post
 import requests
+import ssl
 
-posts = requests.get("https://api.npoint.io/5abcca6f4e39b4955965").json()
+ssl._create_default_https_context = ssl._create_unverified_context
+posts = requests.get("https://api.npoint.io/d025a8e124acfb144f7b", verify=False).json()
 post_objects = []
 for post in posts:
     post_obj = Post(post["id"], post["title"], post["subtitle"], post["body"])
