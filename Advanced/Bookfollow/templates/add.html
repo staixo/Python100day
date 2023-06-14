@@ -1,3 +1,13 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+
+
+{% block title %}Book shelf{% endblock %}
+
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,13 +16,10 @@
 </head>
 <body>
     <form action="" method="POST">
-        <label>Book Name</label>
-        <input type="text">
-        <label>Book Author</label>
-        <input type="text">
-        <label>Rating</label>
-        <input type="text">
-        <button type="submit">Add Book</button>
+
+        {{ wtf.quick_form(form, novalidate=True) }}
     </form>
 </body>
 </html>
+
+{% endblock %}
