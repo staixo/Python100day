@@ -17,8 +17,8 @@
         {% for cafe in cafes %}
         <tr>
           {% for element in cafe %}
-          {% if element.startswith('https://') %}
-          <td><a href="Maps Link">{{ element }}</a></td>
+          {% if element.startswith('http') %}
+          <td><a href="{{ element }}">Maps Link</a></td>
           {% else %}
           <td>{{ element }}</td>
           {% endif %}
@@ -27,7 +27,7 @@
         {% endfor %}
       </table>
 
-      <p><a href="#">Return to index page</a></p>
+      <p><a href="/">Return to index page</a></p>
 
     </div>
   </div>
