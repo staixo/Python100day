@@ -4,7 +4,14 @@ from wtforms import StringField
 from wtforms.validators import DataRequired
 from flask import redirect
 from wtforms.fields import PasswordField
+from flask import Flask
+from flask_bootstrap import Bootstrap
 
+def create_app():
+  app = Flask(__name__)
+  Bootstrap(app)
+
+  return app
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # N'oubliez pas de définir votre clé secrète
@@ -22,7 +29,7 @@ def login():
         password = form.password.data
 
         # Exemple : vérifier les identifiants de connexion
-        if username == "admin" and password == "password":
+        if username == "admin@email.com" and password == "12345678":
             return render_template('success.html')
         else:
             return render_template('denied.html')
