@@ -1,13 +1,17 @@
 <!DOCTYPE HTML>
-
 <html>
-	<head>
-		<title>Login</title>
-	</head>
-	<body>
-        <div class="container">
-		<h1>Login</h1>
-        <!-- This is where our form will go. -->
-        </div>
-	</body>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form method="POST" action="{{ url_for('login') }}">
+            {{ form.csrf_token }}
+            {{ form.username.label }} {{ form.username() }}
+            {{ form.password.label }} {{ form.password() }}
+            <input type="submit" value="Login">
+        </form>
+    </div>
+</body>
 </html>
