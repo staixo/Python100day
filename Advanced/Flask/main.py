@@ -4,17 +4,14 @@ from wtforms import StringField
 from wtforms.validators import DataRequired
 from flask import redirect
 from wtforms.fields import PasswordField
-from flask import Flask, render_template
-from flask_wtf import FlaskForm
-from wtforms import StringField
-from wtforms.validators import DataRequired
+
 
 app = Flask(__name__)
 app.secret_key = 'your_secret_key'  # N'oubliez pas de définir votre clé secrète
 
 class LoginForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
-    password = StringField('Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
