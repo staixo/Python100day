@@ -75,6 +75,27 @@ def get_all_cafes():
 
     return jsonify(cafes_list)
 
+@app.route("/search")
+def search_cafe():
+    location = request.args.get("location")
+    cafes = db.session.query(Cafe).filter_by(location=location).all()
+    cafes_list = []
+    for cafe in cafes:
+        cafe_data = {
+            "id": cafe.id,
+            "name": cafe.name,
+            "map_url": cafe.map_url,
+            "img_url": cafe.img_url,
+            "location": cafe.location,
+            "seats": cafe.seats,
+            "has_toilet": cafe.has_toilet,
+            "has_wifi": cafe.has_wifi,
+            "has_sockets": cafe.has_sockets,
+            "can_take_calls": cafe.can_take_calls,
+            "coffee_price": cafe.coffee_price,
+        }
+        cafes_list.append(cafe_data)
+    return jsonify(cafes_list) 
 
 
 @app.route("/add", methods=["POST"])
