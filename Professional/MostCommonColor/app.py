@@ -16,7 +16,7 @@ def analyze_colors(file_path):
 
 
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = 'uploads'
+app.config['UPLOAD_FOLDER'] = '/Users/henripeters/Documents/Projetperso/Python100day/Professional/MostCommonColor/static/uploads'
 
 @app.route('/')
 def home():
