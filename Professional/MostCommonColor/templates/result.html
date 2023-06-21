@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Analysis Result</title>
+</head>
+<body>
+    <h1>Color Analysis Result</h1>
+    <h2>Most Common Colors:</h2>
+    <ul>
+        {% for color in colors %}
+            <li style="background-color:{{ color }};">{{ color }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
