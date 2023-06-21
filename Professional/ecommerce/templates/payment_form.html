@@ -1,0 +1,12 @@
+<form action="/charge" method="post">
+    <script
+        src="https://checkout.stripe.com/checkout.js"
+        class="stripe-button"
+        data-key="{{ key }}"
+        data-amount="500"
+        data-name="Sample Store"
+        data-description="Sample Product"
+        data-currency="usd"
+    >
+    </script>
+</form>
