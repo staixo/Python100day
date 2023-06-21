@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Writing App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Online Writing App</h1>
+    <textarea id="text" rows="10" cols="50"></textarea>
+    <p id="message"></p>
+    <script>
+        var typingTimer;
+        var doneTypingInterval = 2000; // 2 seconds
+
+        $(document).ready(function() {
+            $('#text').on('input', function() {
+                clearTimeout(typingTimer);
+                typingTimer = setTimeout(saveText, doneTypingInterval);
+            });
+
+            $('#text').on('keydown', function() {
+                clearTimeout(typingTimer);
+            });
+        });
+
+        function saveText() {
+            var text = $('#text').val();
+            $.post('/save', {'text': text}, function(data) {
+                if (data.status === 'success') {
+                    $('#message').text('Text saved successfully!');
+                } else {
+                    $('#message').text('Error: ' + data.message);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
